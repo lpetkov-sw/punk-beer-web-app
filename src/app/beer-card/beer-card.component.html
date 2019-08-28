@@ -1,0 +1,17 @@
+<div class="card mb-4">
+    <fa-icon 
+        [icon]="isFavourite ? ['fas','star'] : ['far','star']"
+        (click)="onFavouriteClick()"
+    ></fa-icon>
+    <div class="row no-gutters">     
+        <div class="col-md-4">
+            <img src="{{ beer.image_url }}" class="card-img mx-auto d-block" alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">{{ beer.name }}</h5>
+                <p class="card-text">{{ beer.description | truncate : 100 }}</p>
+            </div>
+        </div>
+    </div>
+</div>

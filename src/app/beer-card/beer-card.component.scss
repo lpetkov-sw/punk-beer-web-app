@@ -1,0 +1,16 @@
+@import "src/_variables.scss";
+
+.card {
+    padding: 16px;
+    .card-img {
+        margin-top: 20px;
+        width: auto;
+        max-height: 150px;
+    }
+
+    fa-icon {
+        cursor: pointer;
+        text-align: right;
+        color: $primary-color;
+    }
+}

@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="d-flex justify-content-center p-4 search-container m-auto">
+        <input [(ngModel)]="searchName" class="form-control flex-grow-1" type="text" placeholder="Search for beer..." aria-label="Search">
+        <button href="#!" class="btn btn-primary btn-md" (click)="searchForBeer()">Search</button>
+    </div>
+    <div class="row">
+        <div *ngFor="let beer of beers;" class="col-md-6 col-lg-6 col-xl-4  d-flex">
+            <app-beer-card [beer]="beer" class="d-flex"></app-beer-card>
+        </div>
+    </div>
+</div>
