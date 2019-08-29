@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BeerService } from '../services/beer.service';
+import { Beer } from '../models/beer.model';
 
 @Component({
   selector: 'app-beers',
@@ -8,7 +9,7 @@ import { BeerService } from '../services/beer.service';
 })
 export class BeersComponent implements OnInit {
 
-  beers: Array<any> = [];
+  beers: Array<Beer> = [];
   searchName: string;
   
   constructor(private _beerService : BeerService) { }

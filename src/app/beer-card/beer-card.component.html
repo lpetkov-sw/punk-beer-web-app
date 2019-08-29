@@ -1,11 +1,11 @@
 <div class="card mb-4">
     <fa-icon 
-        [icon]="isFavourite ? ['fas','star'] : ['far','star']"
-        (click)="onFavouriteClick()"
+        [icon]="beer.isFavourite ? ['fas','star'] : ['far','star']"
+        (click)="onFavouriteClick(beer.id)"
     ></fa-icon>
     <div class="row no-gutters">     
         <div class="col-md-4">
-            <img src="{{ beer.image_url }}" class="card-img mx-auto d-block" alt="...">
+            <img src="{{ beer.image }}" class="card-img mx-auto d-block" alt="...">
         </div>
         <div class="col-md-8">
             <div class="card-body">

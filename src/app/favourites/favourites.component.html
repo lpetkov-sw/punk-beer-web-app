@@ -1,3 +1,7 @@
 <div class="container">
-    <p>favourites works!</p>
+    <div class="row">
+        <div *ngFor="let beer of favouriteBeers;" class="col-md-6 col-lg-6 col-xl-4  d-flex">
+            <app-beer-card [beer]="beer" class="d-flex"></app-beer-card>
+        </div>
+    </div>
 </div>

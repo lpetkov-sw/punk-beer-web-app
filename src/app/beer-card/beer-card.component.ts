@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SessionStorageService } from 'ngx-webstorage';
+import { BeerService } from '../services/beer.service';
 import { AppSettings } from '../appSettings';
+import { Beer } from '../models/beer.model';
 
 @Component({
   selector: 'app-beer-card',
@@ -9,23 +10,21 @@ import { AppSettings } from '../appSettings';
 })
 export class BeerCardComponent implements OnInit {
 
-  @Input() beer: object;
-  isFavourite: boolean;
+  @Input() beer: Beer;
 
-  constructor(private sessionStorage: SessionStorageService ) { }
+  constructor( private _beerService : BeerService ) {
+
+  }
 
   ngOnInit() {
   }
 
   onFavouriteClick(beerId: number) { 
-    this.isFavourite = !this.isFavourite;
-    
-
-    /*this.sessionStorage.store(AppSettings.SESSION_STORE_FAV_KEY, beerId);
-
-    this.sessionStorage.observe(AppSettings.SESSION_STORE_FAV_KEY)
-            .subscribe((value) => console.log('new value', value));
-    */
+    if (this.beer.isFavourite) {
+      this._beerService.removeBeerFromFavourites(beerId);
+    } else {
+      this._beerService.addBeerToFavourites(beerId);
+    }
+    this.beer.isFavourite = !this.beer.isFavourite;
   }
-
 }
